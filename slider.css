@@ -1,0 +1,32 @@
+html {
+  height: 100%;
+}
+
+main {
+  height: 75vh;
+}
+
+header, #sliderValueContainer, footer {
+  display: flex;
+  justify-content: center;
+}
+
+#slider {
+  margin: 10px;
+  border: 1px solid black;
+  height: 10px;
+}
+
+#slider:hover, #slider:hover>span, button {
+  cursor: pointer;
+}
+
+#rangeContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+#sliderValueContainer {
+  align-items: center;
+  height: 70vh;
+}
