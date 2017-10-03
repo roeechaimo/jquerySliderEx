@@ -6,9 +6,19 @@ main {
   height: 75vh;
 }
 
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 header, #sliderValueContainer, footer {
   display: flex;
   justify-content: center;
+}
+
+#sliderContainer{
+  width: 50vw;
 }
 
 #slider {
