@@ -10,7 +10,7 @@ body {
 }
 
 main {
-  height: 75vh;
+  height: 65vh;
 }
 
 section {
@@ -22,6 +22,8 @@ section {
 header, #sliderValueContainer, footer {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 #sliderContainer {
@@ -50,7 +52,7 @@ header, #sliderValueContainer, footer {
 
 #sliderValueContainer {
   align-items: center;
-  height: 65vh;
+  height: 55vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -59,6 +61,6 @@ header, #sliderValueContainer, footer {
 #hand {
   height: 15vh;
   border: 1px solid black;
-  background-color: black;  
+  background-color: black;
   transform-origin: bottom;
 }

@@ -8,7 +8,7 @@ $(document).ready(function() {
     max: 10,
     value: 0,
     change: function(event, ui) {
-      showValue();
+      showValue(ui.value);
     },
     slide: function(event, ui) {}
   });
@@ -17,14 +17,15 @@ $(document).ready(function() {
     resetValue();
   });
 
-  $("#slider").on("slidechange slide mousedown", function(event, ui) {
-    showValue();
+  $("#slider").on("slidechange slide", function(event, ui) {
+    showValue(ui.value);
   });
 
   $("#slider").on("slidestop", function(event, ui) {
+    showValue(ui.value);
     var value = ui.value;
     var speed = translateValueToSpeed(value);
-    startAnimate(speed);
+    speed === 0 ? stopAnimate() : startAnimate(speed);
   });
 
   function translateValueToSpeed(value) {
@@ -32,6 +33,7 @@ $(document).ready(function() {
       var valueAsStr = (10 - value) + '00';
       return Number(valueAsStr);
     } else if (value === 0) {
+      stopAnimate();
       return 0;
     } else {
       return 50;
@@ -71,26 +73,30 @@ $(document).ready(function() {
     $("#max span").html(maxVal);
   }
 
-  function showValue() {
-    var value = $("#slider").slider("value");
+  function showValue(value) {
     $("#sliderValue").html(value);
   }
 
   function resetValue() {
     $("#slider").slider("value", 0);
     $("#sliderValue").html(0);
+    stopAnimate();
   }
 
   function startAnimate(speed) {
     if (intervalId) {
-      clearInterval(intervalId);
+      stopAnimate();
     }
     intervalId = setInterval(handAnimation, speed);
   }
 
-  //todo - fix interval
+  function stopAnimate() {
+    clearInterval(intervalId);
+    $("#hand").stop(true, true);
+    $("#hand").css('transform', 'rotate(0deg)');
+  }
 
   getRange();
-  showValue();
+  showValue(0);
 
 });
