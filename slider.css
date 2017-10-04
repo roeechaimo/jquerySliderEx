@@ -2,6 +2,13 @@ html {
   height: 100%;
 }
 
+body {
+  margin: auto;
+  font-family: sans-serif;
+  text-shadow: 2px 2px #A9A9A9;
+  background-color: #FFF8DC;
+}
+
 main {
   height: 75vh;
 }
@@ -17,7 +24,7 @@ header, #sliderValueContainer, footer {
   justify-content: center;
 }
 
-#sliderContainer{
+#sliderContainer {
   width: 50vw;
 }
 
@@ -36,7 +43,22 @@ header, #sliderValueContainer, footer {
   justify-content: space-between;
 }
 
+#resetValueContainer>button {
+  font-family: inherit;
+  background-color: #F8F8FF;
+}
+
 #sliderValueContainer {
   align-items: center;
-  height: 70vh;
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#hand {
+  height: 15vh;
+  border: 1px solid black;
+  background-color: black;  
+  transform-origin: bottom;
 }
